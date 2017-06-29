@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Type: MyString
+  Number: 
+  Fertilizer: MyString
+  yields: 
+  spacing: 
+  plantedOn: MyString
+  water: MyString
+  notes: MyText
+  img: MyString
+  Sunlight: MyString
+  Total_Yield: 
+  Substrate: MyString
+
+two:
+  Type: MyString
+  Number: 
+  Fertilizer: MyString
+  yields: 
+  spacing: 
+  plantedOn: MyString
+  water: MyString
+  notes: MyText
+  img: MyString
+  Sunlight: MyString
+  Total_Yield: 
+  Substrate: MyString

@@ -1,0 +1,2 @@
+class YieldsController < ApplicationController
+end

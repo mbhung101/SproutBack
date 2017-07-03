@@ -17,8 +17,7 @@ class Api::AlertsController < ApplicationController
   end
 
   def destroy
-    Alert.destroy([:alert_id])
-    byebug
+    Alert.destroy(alert_params[:id])
     id = alert_params[:user_id]
     @alerts = Alert.where("user_id = ?",id)
     render json: @alerts

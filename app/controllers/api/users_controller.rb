@@ -18,6 +18,9 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(user_params[:id])
+    @user.update(user_params)
+    render json:@user
   end
 
   private

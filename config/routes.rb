@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       resources :gardens
       resources :patches
       resources :users
+      resources :currentuser
     end
 end

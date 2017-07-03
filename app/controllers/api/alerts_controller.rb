@@ -5,14 +5,23 @@ class Api::AlertsController < ApplicationController
   end
 
   def create
-    @alert = User.create(alert_params)
-    render json: @alert
+    if (alert_params[:message])
+      @newAlert = Alert.create(alert_params)
+    end
+    id = alert_params[:user_id]
+    @alerts = Alert.where("user_id = ?",id)
+    render json: @alerts
   end
 
   def show
   end
 
   def destroy
+    Alert.destroy([:alert_id])
+    byebug
+    id = alert_params[:user_id]
+    @alerts = Alert.where("user_id = ?",id)
+    render json: @alerts
   end
 
   def update
@@ -20,6 +29,6 @@ class Api::AlertsController < ApplicationController
 
   private
     def alert_params
-      params.require(:alert).permit(:message,:priority,:date,:user_id)
+      params.require(:alert).permit(:id,:message,:priority,:date,:user_id)
     end
 end

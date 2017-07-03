@@ -1,7 +1,10 @@
 class Api::CurrentuserController < ApplicationController
   def create
-    @user = User.find_by(username: user_params[:username])
+    @user = User.find_or_create_by(user_params)
     render json:@user
+  end
+
+  def update
   end
 
   private

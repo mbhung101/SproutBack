@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 31) do
 
   create_table "gardens", force: :cascade do |t|
     t.integer "year"
+    t.string "name"
     t.bigint "user_id"
     t.bigint "season_id"
     t.datetime "created_at", null: false
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 31) do
 
   create_table "yields", force: :cascade do |t|
     t.integer "weight"
+    t.string "harvested_on"
     t.bigint "patch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

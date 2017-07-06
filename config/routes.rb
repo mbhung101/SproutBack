@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :api do
       resources :yields
       resources :images
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
       resources :patches
       resources :users
       resources :currentuser
+      resources :garden_patches
     end
 end

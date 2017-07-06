@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 31) do
+ActiveRecord::Schema.define(version: 20170706142608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 31) do
     t.index ["season_id"], name: "index_days_on_season_id"
   end
 
+  create_table "garden_patches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gardens", force: :cascade do |t|
     t.integer "year"
     t.string "name"
@@ -46,8 +51,7 @@ ActiveRecord::Schema.define(version: 31) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "url"
-    t.string "date"
+    t.text "url"
     t.bigint "patch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

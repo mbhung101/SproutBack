@@ -1,4 +1,4 @@
-class GardensController < ApplicationController
+class Api::GardensController < ApplicationController
   def index
     @gardens = Garden.order(:created_at)
     render json: @gardens
@@ -24,6 +24,6 @@ class GardensController < ApplicationController
 
   private
     def garden_params
-      params.require(:garden).permit(:year,:name,:user_id)
+      params.require(:garden).permit(:year,:name,:user_id,:season_id)
     end
 end

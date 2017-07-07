@@ -18,11 +18,11 @@ class Api::PatchesController < ApplicationController
   end
 
   def update
-    patch = Patch.update(newPatch)
+    patch = Patch.update(patch_params[:patch_id],newPatch)
     images = makeImageArray()
-    Image.where(id: patch[0].id).destroy_all()
+    Image.where("patch_id = ?",patch_params[:patch_id]).destroy_all()
     images.each do |image|
-      Image.create(url:image,patch_id:patch[0].id)
+      Image.create(url:image,patch_id:patch_params[:patch_id])
     end
     id = patch_params[:garden_id]
     @patch = Patch.where("garden_id = ?",id)
@@ -60,6 +60,7 @@ class Api::PatchesController < ApplicationController
         spacing: patch_params[:spacing],
         planted_on: patch_params[:planted_on],
         water: patch_params[:water],
+        total_yield: 0,
         sunlight: patch_params[:sunlight],
         substrate: patch_params[:substrate],
         seed_depth: patch_params[:seed_depth],

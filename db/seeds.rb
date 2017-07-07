@@ -17,6 +17,6 @@ patch1 = Patch.create(plant:"ghost pepper",number:20,fertilizer:"My ex-wife",spa
 patch2 = Patch.create(plant:"Eggplant",number:10,fertilizer:"My ex-wife",spacing:40,planted_on:"7/2/2017",water:"daily",notes:"Reminds me of mine",sunlight:"direct",age:10,total_yield:1340,substrate:"top soil",seed_depth:10, garden_id:1,user_id:1)
 yield1 = Yield.create(weight:12,harvested_on:'12/2/2014',patch_id:1)
 yield1 = Yield.create(weight:21,harvested_on:'12/3/2014',patch_id:2)
-image1 = Image.create(url:"https://www.cayennediane.com/wp-content/uploads/Ghost-Pepper-Plant-02.jpg",patch_id:1)
+image1 = Image.create(url:"https://i2.wp.com/maukisunfarm.com/wp-content/uploads/2016/12/bhut-jolokia-ghost-pepper.jpg?resize=450%2C450",patch_id:1)
 image2 = Image.create(url:"http://www.well-beingsecrets.com/wp-content/uploads/How-Eggplant-Grows.jpg",patch_id:2 )
 image3 = Image.create(url:"http://www.homedepot.com/catalog/productImages/1000/de/de72fda8-da4c-428b-8557-fb7d3770c041_1000.jpg",patch_id:2)

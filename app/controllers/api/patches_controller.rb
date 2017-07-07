@@ -17,9 +17,29 @@ class Api::PatchesController < ApplicationController
     render json: @patches
   end
 
+  def update
+    patch = Patch.update(newPatch)
+    images = makeImageArray()
+    Image.where(id: patch[0].id).destroy_all()
+    images.each do |image|
+      Image.create(url:image,patch_id:patch[0].id)
+    end
+    id = patch_params[:garden_id]
+    @patch = Patch.where("garden_id = ?",id)
+    render json: @patch
+  end
+
+  def destroy
+    # needs user_id to be secure
+    Patch.destroy(patch_params[:patch_id])
+    id = patch_params[:garden_id]
+    @patch = Patch.where("garden_id = ?",id)
+    render json: @patch
+  end
+
   private
     def patch_params
-      params.require(:patch).permit(:plant,:number,:fertilizer,:spacing,:planted_on,:age,:water,:notes,:sunlight,:total_yield,:substrate,:seed_depth,:garden_id,:user_id,:image1,:image2,:image3,:image4,:image5)
+      params.require(:patch).permit(:plant,:number,:fertilizer,:spacing,:planted_on,:age,:water,:notes,:sunlight,:total_yield,:substrate,:seed_depth,:garden_id,:user_id,:image1,:image2,:image3,:image4,:image5,:patch_id)
     end
 
     def makeImageArray

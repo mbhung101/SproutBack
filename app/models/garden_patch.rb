@@ -1,0 +1,2 @@
+class GardenPatch < ApplicationRecord
+end

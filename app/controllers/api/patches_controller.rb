@@ -12,8 +12,8 @@ class Api::PatchesController < ApplicationController
         Image.create(url:image,patch_id:newP.id)
       end
     end
-    id = patch_params[:user_id]
-    @patches = Patch.where("user_id = ?",id)
+    id = patch_params[:garden_id]
+    @patches = Patch.where("garden_id = ?",id)
     render json: @patches
   end
 

@@ -6,14 +6,14 @@ class Api::YieldsController < ApplicationController
 
   def create
     Yield.create(newYield)
-    id = yield_params[:user_id]
-    @patches = Patch.where("user_id = ?",id)
+    id = yield_params[:garden_id]
+    @patches = Patch.where("garden_id = ?",id)
     render json: @patches
   end
 
   private
   def yield_params
-    params.require(:yield).permit(:patch_id,:weight,:harvested_on,:user_id)
+    params.require(:yield).permit(:patch_id,:weight,:harvested_on,:user_id,:garden_id)
   end
 
   def newYield

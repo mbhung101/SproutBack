@@ -7,10 +7,11 @@ class Api::GardensController < ApplicationController
   def create
     if (garden_params[:year])
       @newgarden = Garden.create(garden_params)
+      return render json: @newgarden
     end
     id = garden_params[:user_id]
     @gardens = Garden.where("user_id = ?",id)
-    render json: @gardens
+    return render json: @gardens
   end
 
   def show

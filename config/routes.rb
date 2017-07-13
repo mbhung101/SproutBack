@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :plant_types
   namespace :api do
       resources :yields
       resources :images
